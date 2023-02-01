@@ -1369,3 +1369,11 @@ The syntax of the macro is as shown in the following figure. Here, we will have 
 PI - Macro Name
 
 3.14 - Macro Value
+
+### Conclusion
+
+ - Macro is a piece of code or value that is replaced with the macro name before the execution of the program.
+ - Preprocessor performs different actions on preprocessor directives and for the macro definition, we use the #define preprocessor directive.
+ - The work of #define is that it replaces the macro body with the macro value at the time of preprocessing.
+ - It is a good idea to use the macros in code as per the requirement and utilize the different types of macros.
+ - Predefined macros can do so many things which aren't possible with normal C programming.
