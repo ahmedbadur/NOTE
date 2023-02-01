@@ -1349,7 +1349,7 @@ This form is used for header files of your own program. It searches for a file n
 
 ## MACROS
 
-Macro in C programming is known as the piece of code defined with the help of the #define directive. Macros in C are very useful at multiple places to replace the piece of code with a single value of the macro. Macros have multiple types and there are some predefined macros as well.
+Macro in C programming is known as the piece of code defined with the help of the **#define directive**. Macros in C are very useful at multiple places to replace the piece of code with a single value of the macro. Macros have multiple types and there are some predefined macros as well.
 
 
 ### What Are Macros?
