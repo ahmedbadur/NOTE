@@ -1370,10 +1370,87 @@ PI - Macro Name
 
 3.14 - Macro Value
 
+
+### Types of Macros in C Language
+
+ - An object like macros in C programming is simply the macros that get replaced by certain values or segments of code.
+ - In the above example, in the introduction, we saw the macro with the name PI and value 3.14 it is an example of an object like macros.
+ - We can define macros with different datatypes as shown as follows but we can't use the same macro names for two different values
+
+```
+// Examples of object like macros in C language
+#define MAX 100
+#define MIN 1
+#define GRAVITY 9.8
+#define NAME "Scaler"
+#define TRUE 1
+#define FALSE 0
+```
+
+
+### Function Like Macros in C
+
+ - In the function like macros are very similar to the actual function in C programming.
+ - We can pass the arguments with the macro name and perform the actions in the code segment.
+ - In macros, there is no type checking of arguments so we can use it as an advantage to pass different datatypes in same macros in C language.
+ - Let's consider the following code example which is the modification of the previous code
+
+```
+#include <stdio.h>
+
+//object like macro
+#define PI 3.14
+
+// function like macro
+#define Area(r) (PI*(r*r))
+
+void main()
+{
+    // declaration and initialization of radius
+    float radius = 2.5;
+
+    // declaring and assigning the value to area
+    float area = Area(radius);
+
+    // Printing the area of circle
+    printf("Area of circle is %f\n", area);
+    
+    // Using radius as int data type
+    int radiusInt = 5;
+    printf("Area of circle is %f", Area(radiusInt));  
+}
+```
+
+Output:
+```
+Area of circle is 19.625000
+Area of circle is 78.500000
+```
+
+ - See in the above code, we added the function-like macro at line no. 7.
+ - The macro name is Area which takes the argument r as a radius that we have passed at line no. 15 and line no. 22.
+ - At the time of preprocessing the value Area(radius) gets replaced with the processed macro value and it is assigned to the area variable.
+ - At line no. 15, we passed the value of radius as a float and at line no. 22 we passed the value of radius as a float of type integer. So macros gave us the advantage to use the same macro for different datatypes because there is no type checking of arguments.
+
+
+### Chain Like Macros in C
+
+ - When we use one macro inside another macro, then it is known as the chain-like macro.
+ - We already saw the example of a chain-like macro in the above code example where we used the PI in Area. Let's discuss it a little more
+
+```
+#define PI 3.14
+#define Area(r) (PI*(r*r))
+```
+
+ - In the above code snippet, we can see we used the object like macro PI inside the function like macro Area.
+ - Here first parent macro gets expanded i.e. the functional macro Area and then the child macro gets expanded i.e. PI. This way when we use one macro inside another macro, it is called a chain macro.
+
+
 ### Conclusion
 
  - Macro is a piece of code or value that is replaced with the macro name before the execution of the program.
- - Preprocessor performs different actions on preprocessor directives and for the macro definition, we use the #define preprocessor directive.
- - The work of #define is that it replaces the macro body with the macro value at the time of preprocessing.
+ - Preprocessor performs different actions on preprocessor directives and for the macro definition, we use the **#define** preprocessor directive.
+ - The work of **#define** is that it replaces the macro body with the macro value at the time of preprocessing.
  - It is a good idea to use the macros in code as per the requirement and utilize the different types of macros.
  - Predefined macros can do so many things which aren't possible with normal C programming.
