@@ -1402,7 +1402,7 @@ PI - Macro Name
 #define PI 3.14
 
 // function like macro
-#define Area(r) (PI*(r*r))
+#define Area(r) (PI*((r)*(r)))
 
 void main()
 {
@@ -1440,7 +1440,7 @@ Area of circle is 78.500000
 
 ```
 #define PI 3.14
-#define Area(r) (PI*(r*r))
+#define Area(r) (PI*((r)*(r)))
 ```
 
  - In the above code snippet, we can see we used the object like macro PI inside the function like macro Area.
@@ -1454,3 +1454,72 @@ Area of circle is 78.500000
  - The work of **#define** is that it replaces the macro body with the macro value at the time of preprocessing.
  - It is a good idea to use the macros in code as per the requirement and utilize the different types of macros.
  - Predefined macros can do so many things which aren't possible with normal C programming.
+
+### Questions
+
+**1**
+
+```
+#include <stdio.h>
+
+int square(int x)
+{
+	printf("real function");
+	return x * x;
+}
+
+#define square(a)  ((a)*(a))
+
+int main()
+{
+	int ival;
+	printf("enter an integer: ");
+	scanf("%d", &ival);
+
+	int y = square(ival);
+}
+```
+Let's enter the number 10. What would be the output text?
+
+Output:
+
+```
+enter an integer: 10
+
+D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 1324) exited with code 0.
+Press any key to close this window . . .
+```
+ - The macro will be executed before the function. The preprocessor program runs before the compiler.
+
+The operand of the function must be enclosed in parentheses for the function to be run.
+
+```
+#include <stdio.h>
+
+int square(int x)
+{
+	printf("real function");
+	return x * x;
+}
+
+#define square(a)  ((a)*(a))
+
+int main()
+{
+	int ival;
+	printf("enter an integer: ");
+	scanf("%d", &ival);
+
+	int y = (square)(ival);  // (square) <<<<<<
+}
+```
+Let's enter again the number 10. 
+
+Output:
+
+```
+enter an integer: 10
+real function
+D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 4912) exited with code 0.
+Press any key to close this window . . .
+```
