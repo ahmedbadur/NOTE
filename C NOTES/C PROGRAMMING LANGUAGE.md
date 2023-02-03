@@ -1529,7 +1529,7 @@ Press any key to close this window . . .
 ```
 
 
-**Note**
+**Note: Macro string trick**
 
 ```
 #include <stdio.h>
@@ -1589,3 +1589,89 @@ D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x6
 Press any key to close this window . . .
 ```
 
+**Note: Macro type trick**
+
+```
+#include <stdio.h>
+
+#define CREATE_MAX_FUNCTION(type) type getmax(const type *p,int size) \
+{ \
+type max=*p;\
+for (int i=0;i<size;++i) \
+	if (p[i]>max) \
+		max=p[i]; \
+return max; \
+}
+
+CREATE_MAX_FUNCTION(int)
+
+int main()
+{
+	int a[5] = { 1,7,2,4,3};
+	printf("%d\n", getmax(a, 5));
+}
+```
+
+Output:
+
+```
+7
+
+D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 16244) exited with code 0.
+Press any key to close this window . . .
+```
+
+
+When we add more than one function macro for different types, syntax error will occur.
+
+```
+#include <stdio.h>
+
+#define CREATE_MAX_FUNCTION(type) type getmax(const type *p,int size) \
+{ \
+type max=*p;\
+for (int i=0;i<size;++i) \
+	if (p[i]>max) \
+		max=p[i]; \
+return max; \
+}
+
+CREATE_MAX_FUNCTION(int)
+CREATE_MAX_FUNCTION(double)
+CREATE_MAX_FUNCTION(long)
+CREATE_MAX_FUNCTION(float)
+
+int main()
+{
+	int a[5] = { 1,7,2,4,3};
+	printf("%d\n", getmax(a, 5));
+}
+```
+
+So we should add this expression _##type
+
+```
+#include <stdio.h>
+
+#define CREATE_MAX_FUNCTION(type) type getmax_##type(const type *p,int size) \
+{ \
+type max=*p;\
+for (int i=0;i<size;++i) \
+	if (p[i]>max) \
+		max=p[i]; \
+return max; \
+}
+
+CREATE_MAX_FUNCTION(int)
+CREATE_MAX_FUNCTION(double)
+CREATE_MAX_FUNCTION(long)
+CREATE_MAX_FUNCTION(float)
+
+int main()
+{
+	int a[5] = { 1,7,2,4,3};
+	printf("%d\n", getmax(a, 5));
+}
+```
+
+No syntax errors will occur.
