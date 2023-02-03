@@ -1449,6 +1449,10 @@ Area of circle is 78.500000
 
 ### Conclusion
 
+ - Macros tend to grow up source code.
+ - Functions are type dependent, but macros are type independent.
+ - Debug support may be less in case of macro usage.
+ - Macros can create more efficient code than functions.
  - Macro is a piece of code or value that is replaced with the macro name before the execution of the program.
  - Preprocessor performs different actions on preprocessor directives and for the macro definition, we use the **#define** preprocessor directive.
  - The work of **#define** is that it replaces the macro body with the macro value at the time of preprocessing.
@@ -1523,3 +1527,65 @@ real function
 D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 4912) exited with code 0.
 Press any key to close this window . . .
 ```
+
+
+**Note**
+
+```
+#include <stdio.h>
+
+#define iprint(x) printf("%d\n",x)
+
+int main()
+{
+	int a = 10;
+	int b = 7;
+	int c = 5;
+
+	iprint(a);
+	iprint(a+b);
+	iprint(a * a + b * b + c * c);
+}
+```
+
+Output:
+
+```
+10
+17
+174
+
+D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 14428) exited with code 0.
+Press any key to close this window . . .
+```
+
+If we apply the use of #x, it will output as follows. 
+
+```
+#include <stdio.h>
+
+#define iprint(x) printf(#x " = %d\n",x)  // #x  <<<<
+
+int main()
+{
+	int a = 10;
+	int b = 7;
+	int c = 5;
+
+	iprint(a);
+	iprint(a+b);
+	iprint(a * a + b * b + c * c);
+}
+```
+
+Output:
+
+```
+a = 10
+a+b = 17
+a * a + b * b + c * c = 174
+
+D:\AHMED-BADUR\EDUCATION\C PROGRAMMING LANGUAGE\C PROGRAMMING WORKS\Lesson-01\x64\Debug\Lesson-01.exe (process 20776) exited with code 0.
+Press any key to close this window . . .
+```
+
