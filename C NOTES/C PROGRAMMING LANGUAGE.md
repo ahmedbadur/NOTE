@@ -1675,3 +1675,83 @@ int main()
 ```
 
 No syntax errors will occur.
+
+
+## CONDITIONAL COMPILATION
+
+In C programming, you can instruct the preprocessor whether to include a block of code or not. To do so, conditional directives can be used. It's similar to a if statement with one major difference. The if statement is tested during the execution time to check whether a block of code should be executed or not whereas, the conditionals are used to include (or skip) a block of code in your program before execution.
+
+### Uses of Conditional
+
+ - Use different code depending on the machine, operating system
+ - Compile the same source file in two different programs
+ - To exclude certain code from the program but to keep it as a reference for future purposes
+
+
+### #ifdef Directive
+
+```
+#ifdef MACRO     
+   // conditional codes
+#endif
+```
+
+ - Here, the conditional codes are included in the program only if MACRO is defined.
+
+
+### #if, #elif and #else Directive
+
+```
+#if expression
+   // conditional codes
+#endif
+```
+
+ - Here, expression is an expression of integer type (can be integers, characters, arithmetic expression, macros, and so on).
+ - The conditional codes are included in the program only if the expression is evaluated to a non-zero value.
+ - The optional #else directive can be used with #if directive.
+
+```
+#if expression
+   conditional codes if expression is non-zero
+#else
+   conditional if expression is 0
+#endif
+```
+ - You can also add nested conditional to your #if...#else using #elif
+
+```
+#if expression
+    // conditional codes if expression is non-zero
+#elif expression1
+    // conditional codes if expression is non-zero
+#elif expression2
+    // conditional codes if expression is non-zero
+#else
+    // conditional if all expressions are 0
+#endif
+```
+
+
+### #defined
+
+The special operator #defined is used to test whether a certain macro is defined or not. It's often used with #if directive.
+
+```
+#if defined BUFFER_SIZE && BUFFER_SIZE >= 2048
+  // codes
+```
+
+
+### Predefined Macros
+
+Here are some predefined macros in C programming.
+
+```
+Macro		Value
+__DATE__	A string containing the current date.
+__FILE__	A string containing the file name.
+__LINE__	An integer representing the current line number.
+__STDC__	If follows ANSI standard C, then the value is a nonzero integer.
+__TIME__	A string containing the current time.
+```
