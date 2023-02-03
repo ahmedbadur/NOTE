@@ -1670,7 +1670,7 @@ CREATE_MAX_FUNCTION(float)
 int main()
 {
 	int a[5] = { 1,7,2,4,3};
-	printf("%d\n", getmax(a, 5));
+	printf("%d\n", getmax_int(a, 5));
 }
 ```
 
