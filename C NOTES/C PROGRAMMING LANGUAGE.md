@@ -1459,7 +1459,7 @@ Area of circle is 78.500000
  - It is a good idea to use the macros in code as per the requirement and utilize the different types of macros.
  - Predefined macros can do so many things which aren't possible with normal C programming.
 
-### Questions
+### Questions and Notes
 
 **1**
 
