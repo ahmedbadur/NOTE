@@ -1755,3 +1755,48 @@ __LINE__	An integer representing the current line number.
 __STDC__	If follows ANSI standard C, then the value is a nonzero integer.
 __TIME__	A string containing the current time.
 ```
+
+### Notes
+
+**Multiple Inclusion Guard**
+
+ - Prevents header file from being called multiple times.
+
+Create header file: macro.h 
+
+```
+#ifndef MACRO_H
+#define MACRO_H
+
+  //codes
+
+#endif
+```
+
+So in case of multiple header files. Second header file will not execute.
+
+```
+#include "macro.h"
+
+#include "macro.h"
+```
+
+The code that will be read by the compiler will be like this.
+
+```
+#ifndef MACRO_H
+#define MACRO_H
+
+  //codes
+
+#endif
+
+#ifndef MACRO_H // << MACRO_H already defined so it will not execute.
+#define MACRO_H
+
+  //codes
+
+#endif
+```
+
+
