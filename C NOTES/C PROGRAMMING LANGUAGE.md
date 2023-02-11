@@ -1800,7 +1800,7 @@ The code that will be read by the compiler will be like this.
 ```
 
 
-## goto Statement
+## GOTO STATEMENT
 
 **Syntax:**
 
