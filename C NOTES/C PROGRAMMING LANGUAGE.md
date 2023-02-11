@@ -1800,3 +1800,65 @@ The code that will be read by the compiler will be like this.
 ```
 
 
+## goto Statement
+
+**Syntax:**
+
+```
+Syntax1      |   Syntax2
+----------------------------
+goto label;  |    label:  
+.            |    .
+.            |    .
+.            |    .
+label:       |    goto label;
+```
+
+
+**Examples:**
+
+Type 1: 
+
+ - In this case, we will see a situation similar to as shown in Syntax1 above. Suppose we need to write a program where we need to check if a number is even or not and print accordingly using the goto statement. Below program explains how to do this:
+
+```
+// C program to check if a number is
+// even or not using goto statement
+#include <stdio.h>
+
+// function to check even or not
+void checkEvenOrNot(int num)
+{
+	if (num % 2 == 0)
+		// jump to even
+		goto even;
+	else
+		// jump to odd
+		goto odd;
+
+even:
+	printf("%d is even", num);
+	// return if even
+	return;
+odd:
+	printf("%d is odd", num);
+}
+
+int main() {
+	int num = 26;
+	checkEvenOrNot(num);
+	return 0;
+}
+```
+
+**Output:**
+
+```
+26 is even
+```
+
+### Notes
+
+ - The use of goto statement is highly discouraged as it makes the program logic very complex.
+ - Use of goto makes the task of analyzing and verifying the correctness of programs (particularly those involving loops) very difficult.
+ - Use of goto can be simply avoided using break and continue statements.
