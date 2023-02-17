@@ -1893,7 +1893,9 @@ The expression is evaluated once and compared with the values of each case label
 If there is a match, the corresponding statements after the matching label are executed. For example, if the value of the expression is equal to constant2, statements after case constant2: are executed until break is encountered.
 If there is no match, the default statements are executed.
 
-**Example**
+**Examples**
+
+**1**
 
 ```
 // Program to create a simple calculator
@@ -1944,6 +1946,54 @@ Enter an operator (+, -, *, /): *
 Enter two operands: 10 20
 10.0 * 20.0 = 200.0
 ```
+
+**2**
+
+```
+#include <stdio.h>
+#include "nutility.h"
+
+
+int day_of_year(int d, int m, int y)
+{
+	int sum = d;
+	switch (m - 1)
+	{
+		case 11: sum += 30; // fallthrough
+		case 10: sum += 31; // fallthrough
+		case  9: sum += 30; // fallthrough
+		case  8: sum += 31; // fallthrough
+		case  7: sum += 31; // fallthrough
+		case  6: sum += 30; // fallthrough
+		case  5: sum += 31; // fallthrough
+		case  4: sum += 30; // fallthrough
+		case  3: sum += 31; // fallthrough
+		case  2: ISLEAP(y) ? (sum += 27) : (sum += 28); // fallthrough
+		case  1: sum += 31; 
+			return sum;
+	}
+		
+
+}
+int main()
+{
+	int day, month, year;
+	printf("enter a date\n");
+	scanf("%d%d%d", &day, &month, &year);
+	printf("on the %d. day of the year %d ", day_of_year(day, month, year),year);
+}
+```
+
+Lets enter 17 02 2023.
+
+**Output:**
+
+```
+enter a date
+17 02 2023
+on the 48. day of the year 2023
+```
+
 
 ### Notes
 
