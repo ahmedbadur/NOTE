@@ -1944,3 +1944,17 @@ Enter an operator (+, -, *, /): *
 Enter two operands: 10 20
 10.0 * 20.0 = 200.0
 ```
+
+### Notes
+
+If we want to jump without using break; we should explain it by writing fallthrough.
+
+```
+switch (x)
+{
+case 1: foo(); // fallthrough
+case 2: x(); break;
+case 3: y(); break;
+case 4: z(); break;
+}
+```
