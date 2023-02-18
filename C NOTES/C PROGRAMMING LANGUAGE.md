@@ -2008,3 +2008,67 @@ case 3: y(); break;
 case 4: z(); break;
 }
 ```
+
+
+## TYPE CONVERSIONS
+
+### Rank
+
+Some data types like char , short int take less number of bytes than int, these data types are automatically promoted to int or unsigned int when an operation is performed on them. This is called integer promotion. For example no arithmetic calculation happens on smaller types like char, short and enum. They are first converted to int or unsigned int, and then arithmetic is done on them. If an int can represent all values of the original type, the value is converted to an int . Otherwise, it is converted to an unsigned int.
+
+```
+long double > double > float > long long > long > int
+```
+
+ - For example see the following program.
+
+
+```
+#include <stdio.h>
+  
+int main()
+{
+    char a = 0xfb;
+    unsigned char b = 0xfb;
+  
+    printf("a = %c", a);
+    printf("\nb = %c", b);
+  
+    if (a == b)
+      printf("\nSame");
+    else
+      printf("\nNot Same");
+    return 0;
+}
+```
+
+**Output:**
+
+```
+a = ?
+b = ?
+Not Same 
+```
+
+When we print ‘a’ and ‘b’, same character is printed, but when we compare them, we get the output as “Not Same”.
+‘a’ and ‘b’ have same binary representation as char. But when comparison operation is performed on ‘a’ and ‘b’, they are first converted to int. ‘a’ is a signed char, when it is converted to int, its value becomes -5 (signed value of 0xfb). ‘b’ is unsigned char, when it is converted to int, its value becomes 251. The values -5 and 251 have different representations as int, so we get the output as “Not Same”.
+
+### Notes
+
+ - Transactions of the same rank will be processed in the unsigned direction.
+
+```
+signed long x = 10;   // 4 bytes
+unsigned long y = 20; // 8 bytes
+
+x+y = unsigned long   // 8 bytes
+```
+
+- Transactions of the different rank will be processed in the upper rank unsigned type direction.
+
+```
+signed long x = 10;  // 4 bytes
+unsigned int y = 20; // 4 bytes
+
+x+y = unsigned long  // 8 bytes
+```
