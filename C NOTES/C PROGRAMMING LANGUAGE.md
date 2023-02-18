@@ -2067,7 +2067,7 @@ x+y = unsigned long   // 8 bytes
 - Transactions of the different rank will be processed in the upper rank unsigned type direction.
 
 ```
-signed long x = 10;  // 4 bytes
+signed long x = 10;  // 4 bytes 
 unsigned int y = 20; // 4 bytes
 
 x+y = unsigned long  // 8 bytes
