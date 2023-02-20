@@ -2072,3 +2072,23 @@ unsigned int y = 20; // 4 bytes
 
 x+y = unsigned long  // 8 bytes
 ```
+
+**Questions**
+
+```
+int main()
+{
+	int a = 10;
+	int b = 30;
+	double dval = (b > a ? a : 3.) / 3;
+
+	printf("%f", dval);
+}
+```
+ - Type conversion takes place in the conditional expression.
+
+**Output**
+
+```
+3.333333
+```
