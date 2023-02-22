@@ -2099,6 +2099,7 @@ int main()
 - Divided into two categories.
 
 **True Random Generations**
+
 **Pseudo Random Generations**
 
 ```
