@@ -2149,13 +2149,10 @@ int main()
 #include <stdlib.h>
 
 
-#define RANDOMIZE()  srand((unsigned)time(NULL))
 #define NGAMES 10'000'000
 
 int roll_dice(void)
 {
-	RANDOMIZE();
-
 	int dice_x = rand() % 6 + 1;
 	int dice_y = rand() % 6 + 1;
 
