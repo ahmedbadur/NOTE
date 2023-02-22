@@ -2092,3 +2092,116 @@ int main()
 ```
 3.333333
 ```
+
+
+## RANDOM NUMBER GENERATION
+
+- Divided into two categories.
+
+**True Random Generations**
+**Pseudo Random Generations**
+
+```
+int main()
+{
+	for (;;)
+	{
+		printf("%d %d\n", rand()%6+1, rand() % 6 + 1);
+		_getch();
+	}
+}
+```
+
+ - The order of the numbers that this code will generate is determined. (Default value 1 is sent) Screen output:
+
+```
+1 5
+2 3
+3 6
+4 2
+3 3
+``` 
+ - And these rankings and values will be the same every time because the seed value is fixed.
+ - If it is desired to produce different numbers by sending different seed values; The value must be sent to the srand(num) function. The random numbers generated change as the seed value sent to the srand function changes.
+
+``` 
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	for (;;)
+	{
+		printf("%d %d\n", rand()%6+1, rand() % 6 + 1);
+		_getch();
+	}
+}
+``` 
+
+### An Example Of A Game Algorithm
+
+ - 2 dice are rolled, if the sum of these two dice it is 7 or 11, the game is won, but 2,3 or 12 is lost.
+ - If 4,5,6,8,9 or 10 is rolled, the dice are rolled again and the same total is won. However, if a 7 is rolled, the game is lost.
+
+```
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+
+#define RANDOMIZE()  srand((unsigned)time(NULL))
+#define NGAMES 10'000'000
+
+int roll_dice(void)
+{
+	RANDOMIZE();
+
+	int dice_x = rand() % 6 + 1;
+	int dice_y = rand() % 6 + 1;
+
+	return dice_x + dice_y;
+
+}
+//if game returns 1, player wins
+//if game returns 0, player loses
+
+int game_(int dice)
+{
+	int new_dice;
+	for (;;)
+	{
+		new_dice = roll_dice();
+		if (new_dice == 7)
+			return 0;
+		if (new_dice == dice)
+			return 1;
+	}
+}
+
+int game(void)
+{
+	int dice = roll_dice();
+
+	switch (dice)
+	{
+	case 7:
+	case 11: return 1;
+	case 2:
+	case 3:
+	case 12:return 0;
+	default: return game_(dice);
+	}
+}
+
+int main()
+{
+
+
+	int win_count = 0;
+
+	for (int i = 0; i < NGAMES; ++i)
+	{
+		win_count += game();
+	}
+	printf("player's probability of winning %f \n  ", (double)win_count / NGAMES);
+}
+```
