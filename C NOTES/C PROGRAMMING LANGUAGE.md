@@ -2402,8 +2402,8 @@ Output:
 217 108 619 899 433 490 465 478 594 972
 ---------------------------------------------------------------------------------
 
-972 is the max number of the array in 9 index of the array
-108 is the min number of the array in 1 index of the array
+972 is the max number in 9 index of the array
+108 is the min number in 1 index of the array
 ```
 
 
