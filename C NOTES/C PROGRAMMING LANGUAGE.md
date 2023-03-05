@@ -2406,4 +2406,52 @@ Output:
 108 is the min number in 1 index of the array
 ```
 
+**3**
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "nutility.h"
+
+#define		SIZE 10
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	set_array_random(a, SIZE);
+	print_array(a, SIZE);	
+
+	int max = a[0];
+	int runner_up = a[1];
+
+	if (a[1] > a[0])
+	{
+		max = a[1];
+		runner_up = a[0];
+	}
+		
+	for (int i = 0; i < SIZE; ++i)
+	{
+		if (a[i] > max)
+		{
+			runner_up = max;
+			max = a[i];			
+		}
+		else if(a[i] > runner_up && a[i] <max)
+			runner_up = a[i];
+	}
+	printf("max number is %d and runner-up number is %d", max, runner_up);
+}
+```
+
+Output:
+
+```
+684  63 947   2 778 906 248 376   4 283
+---------------------------------------------------------------------------------
+max number is 947 and upper number is 906
+```
+
 
