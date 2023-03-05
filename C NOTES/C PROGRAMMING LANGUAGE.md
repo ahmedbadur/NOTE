@@ -2215,3 +2215,78 @@ int main()
 	printf("player's probability of winning %f \n  ", (double)win_count / NGAMES);
 }
 ```
+
+
+## ARRAYS
+
+ - Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+
+ - To create an array, define the data type (like int) and specify the name of the array followed by square brackets [].
+
+ - To insert values to it, use a comma-separated list, inside curly braces:
+
+
+### Access The Elements Of An Array
+
+To access an array element, refer to its index number.
+
+Array indexes start with 0: [0] is the first element. [1] is the second element, etc.
+
+This statement accesses the value of the first element [0] in myNumbers:
+
+
+```
+int myNumbers[] = {25, 50, 75, 100};
+printf("%d", myNumbers[0]);
+```
+
+Output:
+
+```
+25
+```
+
+### Change An Array Element
+
+To change the value of a specific element, refer to the index number:
+
+```
+int myNumbers[] = {25, 50, 75, 100};
+myNumbers[0] = 33;
+
+printf("%d", myNumbers[0]);
+```
+
+Output:
+
+```
+33
+```
+
+### Loop Through An Array
+
+You can loop through the array elements with the for loop.
+
+The following example outputs all elements in the myNumbers array:
+
+```
+int myNumbers[] = {25, 50, 75, 100};
+int i;
+
+for (i = 0; i < 4; i++) 
+{
+  printf("%d\n", myNumbers[i]);
+}
+```
+
+Output:
+
+```
+25
+50
+75
+100
+```
+
+
+
