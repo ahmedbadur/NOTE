@@ -2288,5 +2288,72 @@ Output:
 100
 ```
 
+### Exercises
+
+**1**
+
+Defined functions in the file "nutility.c"
+
+```
+void set_array_random(int* p, int size)
+{
+	while (size--)
+		*p++ = rand() % 1000;
+}
+
+void print_array(int* p, int size)
+{
+	for (int i = 0; i < size; ++i)
+	{
+		if (i && i % 20 == 0)
+			printf("\n");
+		printf("%3d ", p[i]);
+	}
+	printf("\n ----------------------------------------------------------------------------- \n");
+		
+}
+```
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "nutility.h"
+
+#define		SIZE 4
+int main()
+{
+	int a[SIZE];
+	int sum = 0;
+	int odd_count = 0;
+
+	RANDOMIZE();
+
+	set_array_random(a, SIZE);
+	print_array(a, SIZE);	
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		if((a[i] % 2) == 1)
+		{
+			++odd_count;
+			sum += a[i];
+		}		
+
+	}
+	if(odd_count)
+	printf("\nthe sum of the odd numbers = %f", (double)sum / odd_count);
+	else
+		printf("\nthere is no odd in this array");
+}
+```
+
+Output:
+
+```
+644  63 944 337
+ -----------------------------------------------------------------------------
+
+the sum of the odd numbers = 200.000000
+```
 
 
