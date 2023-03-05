@@ -2356,4 +2356,54 @@ Output:
 avarage of the sum of the odd numbers = 200.000000
 ```
 
+**2**
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "nutility.h"
+
+#define		SIZE 10
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	set_array_random(a, SIZE);
+	print_array(a, SIZE);	
+
+	int max = a[0];
+	int max_index = 0;
+	int min = a[0];
+	int min_index = 0;
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		if (a[i] > max)
+		{
+			max = a[i];
+			max_index = i;
+		}
+		else if (a[i] < min)
+		{
+			min = a[i];
+			min_index = i;
+		}
+	}
+	printf("\n%d is the max number of the array in %d index of the array", max, max_index);
+	printf("\n%d is the min number of the array in %d index of the array", min, min_index);
+}
+```
+
+Output:
+
+```
+217 108 619 899 433 490 465 478 594 972
+---------------------------------------------------------------------------------
+
+972 is the max number of the array in 9 index of the array
+108 is the min number of the array in 1 index of the array
+```
+
 
