@@ -2341,7 +2341,7 @@ int main()
 
 	}
 	if(odd_count)
-	printf("\nthe sum of the odd numbers = %f", (double)sum / odd_count);
+	printf("\n avarage the sum of the odd numbers = %f", (double)sum / odd_count);
 	else
 		printf("\nthere is no odd in this array");
 }
@@ -2353,7 +2353,7 @@ Output:
 644  63 944 337
  -----------------------------------------------------------------------------
 
-the sum of the odd numbers = 200.000000
+avarage of the sum of the odd numbers = 200.000000
 ```
 
 
