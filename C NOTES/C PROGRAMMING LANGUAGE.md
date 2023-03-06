@@ -2544,4 +2544,4 @@ int main()
 }
 ```
 
-Output is clear. Because, when the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so i will be change to unsigned value and it will be 4294967294. 
+Output is clear. Because, when the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so the 'i' will be change to unsigned value and it will be 4294967294. 
