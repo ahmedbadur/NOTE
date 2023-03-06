@@ -2611,3 +2611,75 @@ Output:
 ```
 8
 ```
+
+**4**
+
+```
+#define		SIZE 10
+
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	int i, k;
+	int proc = 20;
+
+	for (int i = 0; i < (SIZE); ++i)
+	{
+		a[i] = rand() % 20 + 1;
+		printf("%3d", a[i]);
+	}
+
+	printf("\n\n\n");
+
+
+	while (--proc)
+	{
+		for (k = 0; k < (SIZE); ++k)
+		{		
+			if (a[k]==proc || a[k]>proc)
+			{
+				printf("  ");
+				putchar('*');
+					
+			}
+			else
+			{
+				printf("   ");				
+			}								
+		}
+		printf("\n");
+	}
+	
+	
+}
+```
+
+Output:
+
+```
+ 10  9 20  8 15  4  1 17 14  1
+
+
+        *
+        *
+        *              *
+        *              *
+        *     *        *
+        *     *        *  *
+        *     *        *  *
+        *     *        *  *
+        *     *        *  *
+  *     *     *        *  *
+  *  *  *     *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *  *  *  *  *
+```
