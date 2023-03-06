@@ -2554,7 +2554,7 @@ int main()
 {
    int x = 10;
     
-   printf("%zu ", sizeof(x < 5 ? 1 : 2.4));    
+   printf("%zu ", sizeof(x > 5 ? 1 : 2.4));    
 }
 ```
 
