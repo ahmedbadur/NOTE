@@ -2545,3 +2545,21 @@ int main()
 ```
 
 Output is clear. Because, when the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so the 'i' will be change to unsigned value and it will be 4294967294. 
+
+
+**3**
+
+```
+int main()
+{
+   int x = 10;
+    
+   printf("%zu ", sizeof(x < 5 ? 1 : 2.4));    
+}
+```
+
+Output:
+
+```
+8
+```
