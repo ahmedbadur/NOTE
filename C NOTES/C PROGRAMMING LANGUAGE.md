@@ -2454,6 +2454,54 @@ Output:
 max number is 947 and upper number is 906
 ```
 
+**4**
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "nutility.h"
+
+#define		SIZE 20
+
+int main()
+{
+	int a[SIZE];
+	RANDOMIZE();
+
+	for (int i = 0; i < SIZE; ++i)
+	{
+		a[i] = rand() % 20;
+		printf("%3d", a[i]);
+	}
+
+	printf("\n\n");
+
+	int i, k;
+
+	for (i = 0; i < SIZE; ++i) 
+	{
+		for (k = 0; k < SIZE; ++k)
+		{
+			if (i != k && a[i] == a[k])
+				break;
+		}
+			
+		if (k == SIZE)
+			printf("%3d ", a[i]);
+	}
+	printf("\n");
+}
+```
+
+Output:
+
+```
+  6  6 11  6  9 12  5 12  5 17 13  6 19  0 10  1 17  0  5  9
+
+ 11  13  19  10   1
+```
+
+
 ## SIZEOF
 
  - The sizeof operator is the most common operator in C. It is a compile-time unary operator and used to compute the size of its operand. It returns the size of a variable. It can be applied to any data type, float type, pointer type variables.
