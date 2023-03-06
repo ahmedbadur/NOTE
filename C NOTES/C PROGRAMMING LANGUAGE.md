@@ -2454,4 +2454,30 @@ Output:
 max number is 947 and upper number is 906
 ```
 
+## SIZEOF
 
+ - The sizeof operator is the most common operator in C. It is a compile-time unary operator and used to compute the size of its operand. It returns the size of a variable. It can be applied to any data type, float type, pointer type variables.
+
+ - When sizeof() is used with the data types, it simply returns the amount of memory allocated to that data type. The output can be different on different machines like a 32-bit system can show different output while a 64-bit system can show different of same data types.
+
+
+```
+#include <stdio.h>
+int main()
+{
+    printf("%lu\n", sizeof(char));
+    printf("%lu\n", sizeof(int));
+    printf("%lu\n", sizeof(float));
+    printf("%lu", sizeof(double));
+    return 0;
+}
+```
+
+Output:
+
+```
+1
+4
+4
+8
+```
