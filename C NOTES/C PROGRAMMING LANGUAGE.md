@@ -2504,5 +2504,30 @@ Output:
 10
 ```
 
+### Finding the Number of Elements of an Array With Creating Macro
 
+```
+#define ASIZE(x)	(sizeof(x)/sizeof(x[0]))
+```
+
+**Example**
+
+```
+int main()
+{
+   int a[] = { 15,25,66,98,91,15,447,5552,111,2,35,6,77 };
+
+    for(int i=0;i<ASIZE(a);++i)
+    printf("%d ",a[i]);
+
+    printf("\ncount of the members in the array = %zu", sizeof(a) / sizeof(a[0]));
+}
+```
+
+Output:
+
+```
+15 25 66 98 91 15 447 5552 111 2 35 6 77
+count of the members in the array = 13
+```
 
