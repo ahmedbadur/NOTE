@@ -2465,12 +2465,13 @@ max number is 947 and upper number is 906
 #include <stdio.h>
 int main()
 {
-    printf("%lu\n", sizeof(char));
-    printf("%lu\n", sizeof(int));
-    printf("%lu\n", sizeof(float));
-    printf("%lu", sizeof(double));
+    printf("%zu\n", sizeof(char));
+    printf("%zu\n", sizeof(int));
+    printf("%zu\n", sizeof(float));
+    printf("%zu", sizeof(double));
     return 0;
 }
+
 ```
 
 Output:
@@ -2481,3 +2482,27 @@ Output:
 4
 8
 ```
+
+**Unevaluated Context**
+
+ - The compiler does not create opcode.
+
+```
+int main()
+{
+    int x = 10;
+
+    printf("%zu\n", sizeof(++x));
+    printf("%d\n", x);       
+}
+```
+
+Output:
+
+```
+4
+10
+```
+
+
+
