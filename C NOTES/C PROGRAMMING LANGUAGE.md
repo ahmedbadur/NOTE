@@ -2510,7 +2510,9 @@ Output:
 #define ASIZE(x)	(sizeof(x)/sizeof(x[0]))
 ```
 
-**Example**
+### Examples
+
+**1**
 
 ```
 int main()
@@ -2520,7 +2522,7 @@ int main()
     for(int i=0;i<ASIZE(a);++i)
     printf("%d ",a[i]);
 
-    printf("\ncount of the members in the array = %zu", sizeof(a) / sizeof(a[0]));
+    printf("\ncount of the members in the array = %zu", ASIZE(a));
 }
 ```
 
@@ -2531,3 +2533,15 @@ Output:
 count of the members in the array = 13
 ```
 
+**2**
+
+```
+int main()
+{
+   int a[] = { 1,2,3,4,5 };
+   for(int i=-2;i<ASIZE(a);++i)
+   printf("%d ",a[i]);
+}
+```
+
+Output is clear. Because, wheh the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so i will be change to unsigned value and it will be 4294967294. 
