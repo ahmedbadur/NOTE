@@ -2292,6 +2292,8 @@ Output:
 
 **1**
 
+ - Finding the average of the odd numbers in the array
+
 Defined functions in the file "nutility.c"
 
 ```
@@ -2358,6 +2360,8 @@ avarage of the sum of the odd numbers = 200.000000
 
 **2**
 
+ - Finding the index of the maximum and minimum numbers
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -2408,6 +2412,8 @@ Output:
 
 **3**
 
+ - Finding the highest and upper number
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -2456,6 +2462,8 @@ max number is 947 and upper number is 906
 
 **4**
 
+ - Determination of uniq numbers
+
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -2499,6 +2507,120 @@ Output:
   6  6 11  6  9 12  5 12  5 17 13  6 19  0 10  1 17  0  5  9
 
  11  13  19  10   1
+```
+
+**5**
+
+ - Adding '*' as much as the number size in columns
+
+```
+#define		SIZE 10
+
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	int i, k;
+	int proc = 20;
+
+	for (int i = 0; i < (SIZE); ++i)
+	{
+		a[i] = rand() % 20 + 1;
+		printf("%3d", a[i]);
+	}
+
+	printf("\n\n\n");
+
+
+	while (--proc)
+	{
+		for (k = 0; k < (SIZE); ++k)
+		{		
+			if (a[k]==proc || a[k]>proc)
+			{
+				printf("  ");
+				putchar('*');
+					
+			}
+			else
+			{
+				printf("   ");				
+			}								
+		}
+		printf("\n");
+	}
+	
+	
+}
+```
+
+Output:
+
+```
+ 10  9 20  8 15  4  1 17 14  1
+
+
+        *
+        *
+        *              *
+        *              *
+        *     *        *
+        *     *        *  *
+        *     *        *  *
+        *     *        *  *
+        *     *        *  *
+  *     *     *        *  *
+  *  *  *     *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *        *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *     *  *
+  *  *  *  *  *  *  *  *  *  *
+```
+
+**6**
+
+```
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	set_array_random(a, SIZE);
+	print_array(a, SIZE);
+
+	for (int i = 0; i < SIZE - 1; ++i)
+	{
+		for (int k = 0; k < SIZE - 1 -i; ++k)
+		{
+			if ((a[k] % 2) < (a[k + 1] % 2)||((a[k]%2==a[k+1]%2)&&(a[k]>a[k+1])))
+				
+			{
+				int temp = a[k];
+				a[k] = a[k + 1];
+				a[k + 1] = temp; 
+			}
+			
+		}
+
+	}
+	print_array(a, SIZE);	
+}
+```
+
+Output:
+
+```
+269 443 872 827 444 994  50 105 707 348 308 896 235 376 292 857 851 218 312 732
+---------------------------------------------------------------------------------
+105 235 269 443 707 827 851 857  50 218 292 308 312 348 376 444 732 872 896 994
+---------------------------------------------------------------------------------
 ```
 
 
@@ -2612,115 +2734,9 @@ Output:
 8
 ```
 
-**4**
+## EXERCISES ON ARRAYS 
 
-```
-#define		SIZE 10
-
-int main()
-{
-	int a[SIZE];
-
-	RANDOMIZE();
-
-	int i, k;
-	int proc = 20;
-
-	for (int i = 0; i < (SIZE); ++i)
-	{
-		a[i] = rand() % 20 + 1;
-		printf("%3d", a[i]);
-	}
-
-	printf("\n\n\n");
+### 
 
 
-	while (--proc)
-	{
-		for (k = 0; k < (SIZE); ++k)
-		{		
-			if (a[k]==proc || a[k]>proc)
-			{
-				printf("  ");
-				putchar('*');
-					
-			}
-			else
-			{
-				printf("   ");				
-			}								
-		}
-		printf("\n");
-	}
-	
-	
-}
-```
-
-Output:
-
-```
- 10  9 20  8 15  4  1 17 14  1
-
-
-        *
-        *
-        *              *
-        *              *
-        *     *        *
-        *     *        *  *
-        *     *        *  *
-        *     *        *  *
-        *     *        *  *
-  *     *     *        *  *
-  *  *  *     *        *  *
-  *  *  *  *  *        *  *
-  *  *  *  *  *        *  *
-  *  *  *  *  *        *  *
-  *  *  *  *  *        *  *
-  *  *  *  *  *  *     *  *
-  *  *  *  *  *  *     *  *
-  *  *  *  *  *  *     *  *
-  *  *  *  *  *  *  *  *  *  *
-```
-
-**5**
-
-```
-int main()
-{
-	int a[SIZE];
-
-	RANDOMIZE();
-
-	set_array_random(a, SIZE);
-	print_array(a, SIZE);
-
-	for (int i = 0; i < SIZE - 1; ++i)
-	{
-		for (int k = 0; k < SIZE - 1 -i; ++k)
-		{
-			if ((a[k] % 2) < (a[k + 1] % 2)||((a[k]%2==a[k+1]%2)&&(a[k]>a[k+1])))
-				
-			{
-				int temp = a[k];
-				a[k] = a[k + 1];
-				a[k + 1] = temp; 
-			}
-			
-		}
-
-	}
-	print_array(a, SIZE);	
-}
-```
-
-Output:
-
-```
-269 443 872 827 444 994  50 105 707 348 308 896 235 376 292 857 851 218 312 732
----------------------------------------------------------------------------------
-105 235 269 443 707 827 851 857  50 218 292 308 312 348 376 444 732 872 896 994
----------------------------------------------------------------------------------
-```
 
