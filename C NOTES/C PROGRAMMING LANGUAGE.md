@@ -2150,7 +2150,7 @@ int main()
 }
 ``` 
 
-### An Example Of A Game Algorithm
+### An Example of a Game Algorithm
 
  - 2 dice are rolled, if the sum of these two dice it is 7 or 11, the game is won, but 2,3 or 12 is lost.
  - If 4,5,6,8,9 or 10 is rolled, the dice are rolled again and the same total is won. However, if a 7 is rolled, the game is lost.
@@ -2683,3 +2683,44 @@ Output:
   *  *  *  *  *  *     *  *
   *  *  *  *  *  *  *  *  *  *
 ```
+
+**5**
+
+```
+int main()
+{
+	int a[SIZE];
+
+	RANDOMIZE();
+
+	set_array_random(a, SIZE);
+	print_array(a, SIZE);
+
+	for (int i = 0; i < SIZE - 1; ++i)
+	{
+		for (int k = 0; k < SIZE - 1 -i; ++k)
+		{
+			if ((a[k] % 2) < (a[k + 1] % 2)||((a[k]%2==a[k+1]%2)&&(a[k]>a[k+1])))
+				
+			{
+				int temp = a[k];
+				a[k] = a[k + 1];
+				a[k + 1] = temp; 
+			}
+			
+		}
+
+	}
+	print_array(a, SIZE);	
+}
+```
+
+Output:
+
+```
+269 443 872 827 444 994  50 105 707 348 308 896 235 376 292 857 851 218 312 732
+---------------------------------------------------------------------------------
+105 235 269 443 707 827 851 857  50 218 292 308 312 348 376 444 732 872 896 994
+---------------------------------------------------------------------------------
+```
+
