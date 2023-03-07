@@ -2585,6 +2585,8 @@ Output:
 
 **6**
 
+ - Sorting Odd and Even numbers from least to greatest
+
 ```
 int main()
 {
@@ -2620,6 +2622,76 @@ Output:
 269 443 872 827 444 994  50 105 707 348 308 896 235 376 292 857 851 218 312 732
 ---------------------------------------------------------------------------------
 105 235 269 443 707 827 851 857  50 218 292 308 312 348 376 444 732 872 896 994
+---------------------------------------------------------------------------------
+```
+
+**7**
+
+ - Sorting two arrays in a single array from smallest to largest
+
+Firstly, we define the sort_array function in the nutility.c file.
+
+```
+static int icmp(const void* vp1, const void* vp2)
+{
+	return *(const int*)vp1 - *(const int*)vp2;
+}
+
+void sort_array(int* p, int size)
+{
+	qsort(p, size, sizeof(int), &icmp);
+}
+```
+
+main.c
+
+```
+#define		SIZE 20
+
+int main()
+{
+	int a[SIZE];
+	int b[SIZE];
+	int c[SIZE*2];
+
+
+	RANDOMIZE();
+
+
+	set_array_random(a, SIZE);
+	set_array_random(b, SIZE);
+	sort_array(a, SIZE);
+	sort_array(b, SIZE);
+	print_array(a, SIZE);
+	print_array(b, SIZE);	
+
+	int indx_a = 0;
+	int indx_b = 0;
+
+	for (int i = 0; i < SIZE * 2; ++i)
+	{
+		if (indx_a == SIZE)
+			c[i] = b[indx_b++];
+		else if(indx_b==SIZE)
+			c[i] = a[indx_a++];
+		else if (a[indx_a]<b[indx_b])
+			c[i] = a[indx_a++];
+		else
+			c[i] = b[indx_b++];
+	}
+	print_array(c, 2*SIZE);	
+}
+```
+
+Output:
+
+```
+197 240 262 278 370 394 407 438 471 518 521 594 626 696 829 871 906 931 940 948
+---------------------------------------------------------------------------------
+124 137 140 167 238 276 352 409 427 478 594 608 622 645 662 676 685 849 854 971
+---------------------------------------------------------------------------------
+124 137 140 167 197 238 240 262 276 278 352 370 394 407 409 427 438 471 478 518
+521 594 594 608 622 626 645 662 676 685 696 829 849 854 871 906 931 940 948 971
 ---------------------------------------------------------------------------------
 ```
 
