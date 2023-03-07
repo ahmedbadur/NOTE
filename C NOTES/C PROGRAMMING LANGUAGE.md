@@ -2216,6 +2216,116 @@ int main()
 }
 ```
 
+## SIZEOF
+
+ - The sizeof operator is the most common operator in C. It is a compile-time unary operator and used to compute the size of its operand. It returns the size of a variable. It can be applied to any data type, float type, pointer type variables.
+
+ - When sizeof() is used with the data types, it simply returns the amount of memory allocated to that data type. The output can be different on different machines like a 32-bit system can show different output while a 64-bit system can show different of same data types.
+
+
+```
+#include <stdio.h>
+int main()
+{
+    printf("%zu\n", sizeof(char));
+    printf("%zu\n", sizeof(int));
+    printf("%zu\n", sizeof(float));
+    printf("%zu", sizeof(double));
+    return 0;
+}
+
+```
+
+Output:
+
+```
+1
+4
+4
+8
+```
+
+**Unevaluated Context**
+
+ - The compiler does not create opcode.
+
+```
+int main()
+{
+    int x = 10;
+
+    printf("%zu\n", sizeof(++x));
+    printf("%d\n", x);       
+}
+```
+
+Output:
+
+```
+4
+10
+```
+
+### Finding the Number of Elements of an Array With Creating Macro
+
+```
+#define ASIZE(x)	(sizeof(x)/sizeof(x[0]))
+```
+
+### Examples
+
+**1**
+
+```
+int main()
+{
+   int a[] = { 15,25,66,98,91,15,447,5552,111,2,35,6,77 };
+
+    for(int i=0;i<ASIZE(a);++i)
+    printf("%d ",a[i]);
+
+    printf("\ncount of the members in the array = %zu", ASIZE(a));
+}
+```
+
+Output:
+
+```
+15 25 66 98 91 15 447 5552 111 2 35 6 77
+count of the members in the array = 13
+```
+
+**2**
+
+```
+int main()
+{
+   int a[] = { 1,2,3,4,5 };
+   for(int i=-2;i<ASIZE(a);++i)
+   printf("%d ",a[i]);
+}
+```
+
+Output is clear. Because, when the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so the 'i' will be change to unsigned value and it will be 4294967294. 
+
+
+**3**
+
+```
+int main()
+{
+   int x = 10;
+    
+   printf("%zu ", sizeof(x > 5 ? 1 : 2.4));    
+}
+```
+
+Output:
+
+```
+8
+```
+
 
 ## ARRAYS
 
@@ -2696,119 +2806,6 @@ Output:
 ```
 
 
-## SIZEOF
-
- - The sizeof operator is the most common operator in C. It is a compile-time unary operator and used to compute the size of its operand. It returns the size of a variable. It can be applied to any data type, float type, pointer type variables.
-
- - When sizeof() is used with the data types, it simply returns the amount of memory allocated to that data type. The output can be different on different machines like a 32-bit system can show different output while a 64-bit system can show different of same data types.
-
-
-```
-#include <stdio.h>
-int main()
-{
-    printf("%zu\n", sizeof(char));
-    printf("%zu\n", sizeof(int));
-    printf("%zu\n", sizeof(float));
-    printf("%zu", sizeof(double));
-    return 0;
-}
-
-```
-
-Output:
-
-```
-1
-4
-4
-8
-```
-
-**Unevaluated Context**
-
- - The compiler does not create opcode.
-
-```
-int main()
-{
-    int x = 10;
-
-    printf("%zu\n", sizeof(++x));
-    printf("%d\n", x);       
-}
-```
-
-Output:
-
-```
-4
-10
-```
-
-### Finding the Number of Elements of an Array With Creating Macro
-
-```
-#define ASIZE(x)	(sizeof(x)/sizeof(x[0]))
-```
-
-### Examples
-
-**1**
-
-```
-int main()
-{
-   int a[] = { 15,25,66,98,91,15,447,5552,111,2,35,6,77 };
-
-    for(int i=0;i<ASIZE(a);++i)
-    printf("%d ",a[i]);
-
-    printf("\ncount of the members in the array = %zu", ASIZE(a));
-}
-```
-
-Output:
-
-```
-15 25 66 98 91 15 447 5552 111 2 35 6 77
-count of the members in the array = 13
-```
-
-**2**
-
-```
-int main()
-{
-   int a[] = { 1,2,3,4,5 };
-   for(int i=-2;i<ASIZE(a);++i)
-   printf("%d ",a[i]);
-}
-```
-
-Output is clear. Because, when the int i became -2, it will be signed int type. ASIZE(a) is unsigned int type so the 'i' will be change to unsigned value and it will be 4294967294. 
-
-
-**3**
-
-```
-int main()
-{
-   int x = 10;
-    
-   printf("%zu ", sizeof(x > 5 ? 1 : 2.4));    
-}
-```
-
-Output:
-
-```
-8
-```
-
-## EXERCISES ON ARRAYS 
-
-### 
 
 
 
