@@ -2805,7 +2805,89 @@ Output:
 ---------------------------------------------------------------------------------
 ```
 
+**8**
+
+ - Finding the searched value by making scope
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include "nutility.h"
+
+#define		SIZE 20
+
+int main()
+{
+	int a[SIZE];
+	int b[SIZE];
+	int c[SIZE*2];
 
 
+	RANDOMIZE();
+
+
+	set_array_random(a, SIZE);
+	set_array_random(b, SIZE);
+	sort_array(a, SIZE);
+	sort_array(b, SIZE);
+	print_array(a, SIZE);
+	print_array(b, SIZE);	
+
+	int indx_a = 0;
+	int indx_b = 0;
+
+	for (int i = 0; i < SIZE * 2; ++i)
+	{
+		if (indx_a == SIZE)
+			c[i] = b[indx_b++];
+		else if(indx_b==SIZE)
+			c[i] = a[indx_a++];
+		else if (a[indx_a]<b[indx_b])
+			c[i] = a[indx_a++];
+		else
+			c[i] = b[indx_b++];
+	}
+	print_array(c, 2*SIZE);	
+
+	int sval;
+	printf("enter a value to search for: ");
+	scanf("%d", &sval);
+
+	int index_min = 0;
+	int index_max = 2*SIZE-1;
+	int index_mid;
+
+
+	while (index_min <= index_max)
+	{
+		index_mid = (index_max + index_min) / 2;
+		if (c[index_mid] == sval)
+			break;
+		if (c[index_mid] < sval)
+			index_min = index_mid + 1;
+		else
+			index_max = index_mid - 1;
+	}
+
+	if (index_min > index_max)
+		printf("searched value not found;");
+	else
+		printf("sought value element with index %d\n", index_mid);
+}
+```
+
+Output:
+
+```
+ 43  84 114 131 218 238 278 288 407 444 484 486 515 571 595 673 708 722 746 909
+---------------------------------------------------------------------------------
+ 50 116 190 298 304 320 404 417 419 460 483 492 550 599 616 644 663 750 958 986
+---------------------------------------------------------------------------------
+ 43  50  84 114 116 131 190 218 238 278 288 298 304 320 404 407 417 419 444 460
+483 484 486 492 515 550 571 595 599 616 644 663 673 708 722 746 750 909 958 986
+---------------------------------------------------------------------------------
+enter a value to search for: 595
+sought value element with index 27
+```
 
 
