@@ -2891,3 +2891,16 @@ sought value element with index 27
 ```
 
 
+## STRING LITERALS
+
+A string literal represents multiple characters enclosed within double-quotes. It contains an additional character, i.e., '\0' (null character), which gets automatically inserted. This null character specifies the termination of the string. We can use the '+' symbol to concatenate two strings.
+
+
+ - String literals are used to initialize arrays.
+
+```
+char a1[] = "xyz"; /* a1 is char[4] holding {'x','y','z','\0'} */
+char a2[4] = "xyz"; /* same as a1 */
+char a3[3] = "xyz"; /* a1 is char[3] holding {'x,'y','z'}, missing the '\0' */
+```
+
