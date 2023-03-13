@@ -2904,3 +2904,65 @@ char a2[4] = "xyz"; /* same as a1 */
 char a3[3] = "xyz"; /* a1 is char[3] holding {'x,'y','z'}, missing the '\0' */
 ```
 
+
+### Exercises
+
+**1**
+
+ - Finding the number of letters in a string
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define		SIZE 100
+
+int main()
+{
+	char s[SIZE];
+
+	int cnt[26] = { 0 };
+
+	printf("Enter a text: ");
+	sgets(s);
+
+	for (int i = 0; s[i] != '\0'; ++i)
+	{
+		if (isalpha(s[i]))
+		{
+			++cnt[toupper(s[i]) - 'A'];
+		}
+	}
+
+	for (int i = 0; i < 26; ++i)
+	{
+		if (cnt[i] != 0)
+		{
+			printf("%c %d\n", 'A' + i, cnt[i]);
+		}
+	}	
+```
+
+Let's enter the text (My name is Ahmed Badur)
+
+
+Output:
+
+```
+Enter a text: My name is Ahmed Badur
+A 3
+B 1
+D 2
+E 2
+H 1
+I 1
+M 3
+N 1
+R 1
+S 1
+U 1
+Y 1
+```
+
