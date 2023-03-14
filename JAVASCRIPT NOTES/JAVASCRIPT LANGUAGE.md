@@ -13,3 +13,67 @@ The ECMA-262 Specification defined a standard version of the core JavaScript lan
  - Complementary to and integrated with Java.
  - Complementary to and integrated with HTML.
  - Open and cross-platform
+
+## SYNTAX
+
+JavaScript can be implemented using JavaScript statements that are placed within the <script>... </script> HTML tags in a web page.
+
+You can place the <script> tags, containing your JavaScript, anywhere within your web page, but it is normally recommended that you should keep it within the <head> tags.
+
+The <script> tag alerts the browser program to start interpreting all the text between these tags as a script. A simple syntax of your JavaScript will appear as follows.
+
+```
+<script ...>
+   JavaScript code
+</script>
+```
+
+The script tag takes two important attributes 
+
+ - **Language** − This attribute specifies what scripting language you are using. Typically, its value will be javascript. Although recent versions of HTML (and XHTML, its successor) have phased out the use of this attribute.
+
+ - **Type** − This attribute is what is now recommended to indicate the scripting language in use and its value should be set to "text/javascript".
+
+So your JavaScript segment will look like −
+
+```
+<script language = "javascript" type = "text/javascript">
+   JavaScript code
+</script>
+```
+
+### Your First JavaScript Code
+
+Let us take a sample example to print out "Hello World". We added an optional HTML comment that surrounds our JavaScript code. This is to save our code from a browser that does not support JavaScript. The comment ends with a "//-->". Here "//" signifies a comment in JavaScript, so we add that to prevent a browser from reading the end of the HTML comment as a piece of JavaScript code. Next, we call a function document.write which writes a string into our HTML document.
+
+This function can be used to write text, HTML, or both. Take a look at the following code.
+
+```
+<html>
+   <body>   
+      <script language = "javascript" type = "text/javascript">
+         <!--
+            document.write("Hello World!")
+         //-->
+      </script>      
+   </body>
+</html>
+```
+
+This code will produce the following result;
+
+```
+Hello World!
+```
+
+
+
+
+
+
+
+
+
+
+
+
