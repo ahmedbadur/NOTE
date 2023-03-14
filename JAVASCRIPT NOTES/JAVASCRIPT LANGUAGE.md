@@ -8,7 +8,7 @@ JavaScript was first known as LiveScript, but Netscape changed its name to JavaS
 
 The ECMA-262 Specification defined a standard version of the core JavaScript language.
 
-		- JavaScript is a lightweight, interpreted programming language.
+	- JavaScript is a lightweight, interpreted programming language.
 		- Designed for creating network-centric applications.
 Complementary to and integrated with Java.
 Complementary to and integrated with HTML.
