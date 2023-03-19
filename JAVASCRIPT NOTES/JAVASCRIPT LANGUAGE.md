@@ -127,7 +127,7 @@ If you need a script to run as the page loads so that the script generates conte
 
 ### JavaScript in body and head
 
-You can put your JavaScript code in <head> and <body> section altogether as follows −
+You can put your JavaScript code in <head> and <body> section altogether as follows;
 
 ```
 <html>
