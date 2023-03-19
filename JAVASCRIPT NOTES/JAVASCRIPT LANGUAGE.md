@@ -1,4 +1,4 @@
-# JAVA LANGUAGE LESSON 1
+ # JAVA LANGUAGE LESSON 1
 
 ## WHAT IS JAVASCRIPT ?
 
@@ -67,8 +67,42 @@ Hello World!
 ```
 
 
+## PLACEMENT
+
+There is a flexibility given to include JavaScript code anywhere in an HTML document. However the most preferred ways to include JavaScript in an HTML file are as follows;
+
+ - Script in <head>...</head> section.
+
+ - Script in <body>...</body> section.
+
+ - Script in <body>...</body> and <head>...</head> sections.
+
+ - Script in an external file and then include in <head>...</head> section.
+
+In the following section, we will see how we can place JavaScript in an HTML file in different ways.
 
 
+**JavaScript in <head>...</head> section**
+
+If you want to have a script run on some event, such as when a user clicks somewhere, then you will place that script in the head as follows;
+
+```
+<html>
+   <head>      
+      <script type = "text/javascript">
+         <!--
+            function sayHello() {
+               alert("Hello World")
+            }
+         //-->
+      </script>     
+   </head>
+   
+   <body>
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" />
+   </body>  
+</html>
+```
 
 
 
