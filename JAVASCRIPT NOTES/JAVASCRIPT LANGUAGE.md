@@ -82,7 +82,7 @@ There is a flexibility given to include JavaScript code anywhere in an HTML docu
 In the following section, we will see how we can place JavaScript in an HTML file in different ways.
 
 
-**JavaScript in <head>...</head> section**
+### JavaScript in <head>...</head>
 
 If you want to have a script run on some event, such as when a user clicks somewhere, then you will place that script in the head as follows;
 
@@ -104,6 +104,54 @@ If you want to have a script run on some event, such as when a user clicks somew
 </html>
 ```
 
+### JavaScript in <body>...</body>
+
+If you need a script to run as the page loads so that the script generates content in the page, then the script goes in the <body> portion of the document. In this case, you would not have any function defined using JavaScript. Take a look at the following code.
+
+```
+<html>
+   <head>
+   </head>
+   
+   <body>
+      <script type = "text/javascript">
+         <!--
+            document.write("Hello World")
+         //-->
+      </script>
+      
+      <p>This is web page body </p>
+   </body>
+</html>
+```
+
+### JavaScript in <body> and <head>
+
+You can put your JavaScript code in <head> and <body> section altogether as follows −
+
+```
+<html>
+   <head>
+      <script type = "text/javascript">
+         <!--
+            function sayHello() {
+               alert("Hello World")
+            }
+         //-->
+      </script>
+   </head>
+   
+   <body>
+      <script type = "text/javascript">
+         <!--
+            document.write("Hello World")
+         //-->
+      </script>
+      
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" />
+   </body>
+</html>
+```
 
 
 
