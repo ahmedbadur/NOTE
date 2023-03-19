@@ -71,7 +71,7 @@ Hello World!
 
 There is a flexibility given to include JavaScript code anywhere in an HTML document. However the most preferred ways to include JavaScript in an HTML file are as follows;
 
- - Script in <head>...</head> section.
+ - Script in (<head>...</head>) section.
 
  - Script in <body>...</body> section.
 
