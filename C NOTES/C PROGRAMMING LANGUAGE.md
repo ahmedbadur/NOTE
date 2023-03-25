@@ -2966,3 +2966,57 @@ U 1
 Y 1
 ```
 
+
+**2**
+
+ - Extracting a specified letter from an entered text
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define		SIZE 100
+
+int main()
+{
+	char source[SIZE];
+	char dest[SIZE];
+
+	printf("enter a text: ");
+
+	sgets(source);
+
+	int c;
+
+	printf("enter a typo: ");
+	c = getchar();
+
+	int write_idx = 0;
+
+	for (int i = 0; source[i] != '\0'; ++i)
+	{
+		if (source[i] != c)
+		{
+			dest[write_idx++] = source[i];
+		}
+	}
+
+	dest[write_idx] = '\0';
+
+	printf("[%s]   [%s]\n", source, dest);
+}
+```
+
+Let's enter the text (My name is Ahmed Badur) and enter the letter 'a'
+
+
+Output:
+
+```
+enter a text: My name is Ahmed Badur
+enter a typo: a
+[My name is Ahmed Badur]   [My nme is Ahmed Bdur]
+```
+
