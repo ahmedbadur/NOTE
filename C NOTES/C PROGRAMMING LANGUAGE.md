@@ -3020,3 +3020,49 @@ enter a typo: a
 [My name is Ahmed Badur]   [My nme is Ahmed Bdur]
 ```
 
+**3**
+
+ - Reverse operation
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define		SIZE 100
+
+int main()
+{
+	char str[SIZE];
+	
+	printf("enter a text: ");
+	sgets(str);
+
+	int length;
+
+	for (length = 0; str[length] != '\0'; ++length)
+		;
+	
+	for (int i = 0; i < length / 2; ++i)
+	{
+		char temp = str[i];
+		str[i] = str[length - 1 - i];
+		str[length - 1 - i] = temp;
+	}
+
+	printf("[%s]", str);
+}
+```
+
+
+Let's enter the text (My name is Ahmed Badur)
+
+
+Output:
+
+
+```
+enter a text: My name is Ahmed Badur
+[rudaB demhA si eman yM]
+```
