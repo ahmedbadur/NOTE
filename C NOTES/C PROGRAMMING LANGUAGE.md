@@ -3180,3 +3180,43 @@ Enter a text: Hello World! I am Ahmed Badur.
 Count of the words: 6
 ```
 
+
+**6**
+
+ - Swapping two numbers without a third variable
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+
+int main()
+{
+	int x, y;
+	printf("Enter two integers: ");
+	scanf("%d%d", &x, &y);
+
+	printf("x=%d , y=%d\n", x, y);
+
+	x ^= y; y ^= x; x ^= y;
+
+	printf("x=%d , y=%d", x, y);
+
+}
+```
+
+Let's enter these integers: 20 and 40
+
+Output:
+
+
+```
+Enter two integers: 20 40
+x=20 , y=40
+x=40 , y=20
+```
+
+
+
