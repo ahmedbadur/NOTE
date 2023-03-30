@@ -3066,3 +3066,60 @@ Output:
 enter a text: My name is Ahmed Badur
 [rudaB demhA si eman yM]
 ```
+
+**3**
+
+ - Palindrome
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define		SIZE 100
+
+
+int main()
+{
+	char str[SIZE];
+	char temp[SIZE];
+	int length = 0;
+
+
+	printf("enter a text: ");
+	sgets(str);
+
+	printf("[%s]\n", str);
+
+
+	for (int i = 0; str[i] != '\0'; ++i)
+		if (isalpha(str[i]))
+			temp[length++] = toupper(str[i]);
+
+	int k;
+
+	for (k = 0; k < length / 2; ++k)
+	{
+		if (temp[k] != temp[length - 1 - k])
+			break;
+	}
+
+	if (k == length / 2)
+		printf("It is a palindrome");
+	else
+		printf("It is not a palindrome");
+}
+```
+
+Let's enter this sentence: Mr. Owl ate my metal worm
+
+Output:
+
+
+```
+enter a text: Mr. Owl ate my metal worm
+[Mr. Owl ate my metal worm]
+It is a palindrome
+```
+
