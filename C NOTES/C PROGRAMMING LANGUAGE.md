@@ -3067,7 +3067,7 @@ enter a text: My name is Ahmed Badur
 [rudaB demhA si eman yM]
 ```
 
-**3**
+**4**
 
  - Palindrome
 
