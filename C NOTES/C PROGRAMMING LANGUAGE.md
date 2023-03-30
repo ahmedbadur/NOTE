@@ -3219,4 +3219,49 @@ x=40 , y=20
 ```
 
 
+**7**
+
+ - Reverse elements from one array to another array
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define SIZE 100
+
+int main()
+{
+	char source[SIZE];
+	char dest[SIZE];
+
+	printf("Enter a text: ");
+	sgets(source);
+
+	int i;
+	int k = 0;
+	for (i = 0; source[i] != '\0'; ++i)
+		;
+
+	while (i != 0)
+		dest[k++] = source[--i];
+	dest[k] = '\0';
+
+	printf("\nsource array: [%s]\n", source);
+	printf("dest array: [%s]", dest);
+}
+```
+
+Let's enter the sentence: Hello World!
+
+Output:
+
+
+```
+Enter a text: Hello World!
+
+source array: [Hello World!]
+dest array: [!dlroW olleH]
+```
 
