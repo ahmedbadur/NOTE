@@ -3123,3 +3123,60 @@ enter a text: Mr. Owl ate my metal worm
 It is a palindrome
 ```
 
+
+**5**
+
+ - Count of the words
+
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "nutility.h"
+
+#define		SIZE 100
+#define		INWORD 1
+#define		OUTWORD 0
+
+
+int main()
+{
+	char str[SIZE];
+
+	printf("Enter a text: ");
+	sgets(str);
+	printf("[%s]\n", str);
+
+	int word_flag = OUTWORD;
+	int word_count = 0;
+
+	for (int i = 0; str[i] != '\0'; ++i)
+	{
+		if (isspace(str[i]))
+		{
+			word_flag = OUTWORD;
+		}
+		else if (word_flag == OUTWORD)
+		{
+			++word_count;
+			word_flag = INWORD;
+		}
+	}
+
+	printf("Count of the words: %d\n", word_count);
+}
+```
+
+Let's enter this sentence: Hello World! I am Ahmed Badur.
+
+
+Output:
+
+
+```
+Enter a text: Hello World! I am Ahmed Badur.
+[Hello World! I am Ahmed Badur.]
+Count of the words: 6
+```
+
