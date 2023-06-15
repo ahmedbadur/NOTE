@@ -234,3 +234,59 @@ x = y = z = 50;
 Console.WriteLine(x + y + z);
 ```
 
+### Identifiers
+
+All C# variables must be identified with unique names.
+
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+Note: It is recommended to use descriptive names in order to create understandable and maintainable code:
+
+Example:
+
+```
+// Good
+int minutesPerHour = 60;
+
+// OK, but not so easy to understand what m actually is
+int m = 60;
+```
+
+***NOTE***
+
+The general rules for naming variables are:
+
+- Names can contain letters, digits and the underscore character (_)
+- Names must begin with a letter
+- Names should start with a lowercase letter and it cannot contain whitespace
+- Names are case sensitive ("myVar" and "myvar" are different variables)
+- Reserved words (like C# keywords, such as int or double) cannot be used as names
+
+## DATA TYPES
+
+As explained in the variables chapter, a variable in C# must be a specified data type:
+
+Example:
+
+```
+int myNum = 5;               // Integer (whole number)
+double myDoubleNum = 5.99D;  // Floating point number
+char myLetter = 'D';         // Character
+bool myBool = true;          // Boolean
+string myText = "Hello";     // String
+```
+
+A data type specifies the size and type of variable values.
+
+It is important to use the correct data type for the corresponding variable; to avoid errors, to save time and memory, but it will also make your code more maintainable and readable. The most common data types are:
+
+***Data Type***		***Size***		***Description***
+int			4 bytes			Stores whole numbers from -2,147,483,648 to 2,147,483,647
+long			8 bytes			Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+float			4 bytes			Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+double			8 bytes			Stores fractional numbers. Sufficient for storing 15 decimal digits
+bool			1 bit			Stores true or false values
+char			2 bytes			Stores a single character/letter, surrounded by single quotes
+string			2 bytes per character	Stores a sequence of characters, surrounded by double quotes
