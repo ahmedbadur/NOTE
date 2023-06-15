@@ -91,7 +91,7 @@ In C#, there are different types of variables (defined with different keywords),
 - bool - stores values with two states: true or false
 
 
-### Declaring (Creating) Variables
+***Declaring (Creating) Variables***
 
 To create a variable, you must specify the type and assign it a value:
 
@@ -160,3 +160,77 @@ char myLetter = 'D';
 bool myBool = true;
 string myText = "Hello";
 ```
+
+### Constants
+
+If you don't want others (or yourself) to overwrite existing values, you can add the const keyword in front of the variable type.
+
+This will declare the variable as "constant", which means unchangeable and read-only:
+
+Example:
+
+```
+const int myNum = 15;
+myNum = 20; // error
+```
+
+The const keyword is useful when you want a variable to always store the same value, so that others (or yourself) won't mess up your code. An example that is often referred to as a constant, is PI (3.14159...).
+
+***Note:*** You cannot declare a constant variable without assigning the value. If you do, an error will occur: A const field requires a value to be provided.
+
+
+### Display Variables
+
+The ***WriteLine()*** method is often used to display variable values to the console window.
+
+To combine both text and a variable, use the + character:
+
+Example:
+
+```
+string name = "John";
+Console.WriteLine("Hello " + name);
+```
+
+You can also use the + character to add a variable to another variable:
+
+Example:
+
+```
+string firstName = "John ";
+string lastName = "Doe";
+string fullName = firstName + lastName;
+Console.WriteLine(fullName);
+```
+
+For numeric values, the + character works as a mathematical operator (notice that we use int (integer) variables here):
+
+Example:
+
+```
+int x = 5;
+int y = 6;
+Console.WriteLine(x + y); // Print the value of x + y
+```
+
+### Multiple Variables
+
+***Declare Many Variables***
+
+To declare more than one variable of the same type, use a comma-separated list:
+
+Example:
+
+```
+int x = 5, y = 6, z = 50;
+Console.WriteLine(x + y + z);
+```
+
+You can also assign the same value to multiple variables in one line:
+
+```
+int x, y, z;
+x = y = z = 50;
+Console.WriteLine(x + y + z);
+```
+
