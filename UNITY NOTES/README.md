@@ -1,4 +1,4 @@
 ## UNITY NOTES
 
-*Brief Informations About UNTITY*
+*Brief Informations About UNITY*
 
